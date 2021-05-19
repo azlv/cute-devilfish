@@ -1,7 +1,69 @@
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    basic.showIcon(IconNames.Happy)
-    Tinybit.RGB_Car_Program().showColor(neopixel.colors(NeoPixelColors.Black))
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    动动爪子()
 })
+function 叮叮当 () {
+    音乐暂停时间 = 60
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(494, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    basic.pause(音乐暂停时间)
+    music.playTone(392, music.beat(BeatFraction.Whole))
+}
 input.onButtonPressed(Button.A, function () {
     按键 = 1
     转动()
@@ -23,14 +85,33 @@ function 转动 () {
         }
     }
 }
-input.onSound(DetectedSound.Loud, function () {
-    Tinybit.RGB_Car_Program().showColor(neopixel.rgb(randint(0, 0), randint(0, 255), randint(0, 255)))
-    basic.pause(100)
-})
+function 动动爪子 () {
+    if (爪子动) {
+        return
+    }
+    爪子动 = true
+    Tinybit.RGB_Car_Program().showColor(neopixel.rgb(30, 0, 0))
+    basic.showIcon(IconNames.Happy)
+    Tinybit.CarCtrlSpeed(Tinybit.CarState.Car_Run, 100)
+    basic.pause(4000)
+    Tinybit.CarCtrl(Tinybit.CarState.Car_Stop)
+    basic.pause(1000)
+    Tinybit.CarCtrlSpeed(Tinybit.CarState.Car_Back, 100)
+    basic.pause(4000)
+    Tinybit.CarCtrl(Tinybit.CarState.Car_Stop)
+    爪子动 = false
+    basic.showIcon(IconNames.Heart)
+    Tinybit.RGB_Car_Program().showColor(neopixel.rgb(0, 10, 0))
+}
 let 按键 = 0
+let 音乐暂停时间 = 0
+let 爪子动 = false
 let 转动中 = false
+basic.showIcon(IconNames.Heart)
+Tinybit.RGB_Car_Program().showColor(neopixel.rgb(0, 10, 0))
 转动中 = false
+爪子动 = false
+叮叮当()
 basic.forever(function () {
-    Tinybit.RGB_Car_Program().showColor(neopixel.rgb(randint(0, 255), 0, 0))
-    basic.pause(100)
+	
 })
